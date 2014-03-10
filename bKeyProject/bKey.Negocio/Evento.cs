@@ -32,6 +32,7 @@ namespace bKey.Negocio
             }
             catch (Exception ex)
             {
+                Console.Write(ex);
                 return false;
             }
         }

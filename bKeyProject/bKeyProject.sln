@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bKey.DALC", "bKey.DALC\bKey.DALC.csproj", "{D10A12D7-5E45-41F9-8DB3-4616135A40EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bKey.Negocio", "bKey.Negocio\bKey.Negocio.csproj", "{8D84FAA1-6418-45B6-8B85-65346C62BC81}"
