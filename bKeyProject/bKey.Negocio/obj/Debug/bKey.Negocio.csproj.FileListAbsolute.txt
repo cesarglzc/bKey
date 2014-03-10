@@ -1,0 +1,7 @@
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Negocio\bin\Debug\bKey.Negocio.dll
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Negocio\bin\Debug\bKey.Negocio.pdb
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Negocio\bin\Debug\bKey.DALC.dll
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Negocio\bin\Debug\bKey.DALC.pdb
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Negocio\obj\Debug\bKey.Negocio.csprojResolveAssemblyReference.cache
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Negocio\obj\Debug\bKey.Negocio.dll
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Negocio\obj\Debug\bKey.Negocio.pdb

@@ -1,0 +1,6 @@
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.DALC\bin\Debug\bKey.DALC.dll.config
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.DALC\bin\Debug\bKey.DALC.dll
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.DALC\bin\Debug\bKey.DALC.pdb
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.DALC\obj\Debug\bKey.DALC.dll
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.DALC\obj\Debug\bKey.DALC.pdb
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.DALC\obj\Debug\bKey.DALC.csprojResolveAssemblyReference.cache

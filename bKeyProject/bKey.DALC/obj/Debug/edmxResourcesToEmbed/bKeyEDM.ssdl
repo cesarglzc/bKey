@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bKeyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="bKeyModelStoreContainer">
+    <EntitySet Name="acceso" EntityType="bKeyModel.Store.acceso" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cerradura" EntityType="bKeyModel.Store.cerradura" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="evento" EntityType="bKeyModel.Store.evento" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="bKeyModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tipousuario" EntityType="bKeyModel.Store.tipousuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuario" EntityType="bKeyModel.Store.usuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuario_cerradura" EntityType="bKeyModel.Store.usuario_cerradura" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_acceso_cerradura" Association="bKeyModel.Store.FK_acceso_cerradura">
+      <End Role="cerradura" EntitySet="cerradura" />
+      <End Role="acceso" EntitySet="acceso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_acceso_usuario" Association="bKeyModel.Store.FK_acceso_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="acceso" EntitySet="acceso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_evento_cerradura" Association="bKeyModel.Store.FK_evento_cerradura">
+      <End Role="cerradura" EntitySet="cerradura" />
+      <End Role="evento" EntitySet="evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_cerradura_cerradura" Association="bKeyModel.Store.FK_usuario_cerradura_cerradura">
+      <End Role="cerradura" EntitySet="cerradura" />
+      <End Role="usuario_cerradura" EntitySet="usuario_cerradura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_cerradura_tipousuario" Association="bKeyModel.Store.FK_usuario_cerradura_tipousuario">
+      <End Role="tipousuario" EntitySet="tipousuario" />
+      <End Role="usuario_cerradura" EntitySet="usuario_cerradura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_cerradura_usuario" Association="bKeyModel.Store.FK_usuario_cerradura_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="usuario_cerradura" EntitySet="usuario_cerradura" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="acceso">
+    <Key>
+      <PropertyRef Name="idacceso" />
+    </Key>
+    <Property Name="idacceso" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="idcerradura" Type="int" Nullable="false" />
+    <Property Name="username" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="foto" Type="image" />
+  </EntityType>
+  <EntityType Name="cerradura">
+    <Key>
+      <PropertyRef Name="idcerradura" />
+    </Key>
+    <Property Name="idcerradura" Type="int" Nullable="false" />
+    <Property Name="llave" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="evento">
+    <Key>
+      <PropertyRef Name="idevento" />
+    </Key>
+    <Property Name="idevento" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="idcerradura" Type="int" Nullable="false" />
+    <Property Name="foto" Type="image" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tipousuario">
+    <Key>
+      <PropertyRef Name="idTipoUsuario" />
+    </Key>
+    <Property Name="idTipoUsuario" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="password" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="usuario_cerradura">
+    <Key>
+      <PropertyRef Name="username" />
+      <PropertyRef Name="idcerradura" />
+    </Key>
+    <Property Name="username" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="idcerradura" Type="int" Nullable="false" />
+    <Property Name="idTipoUsuario" Type="int" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_acceso_cerradura">
+    <End Role="cerradura" Type="bKeyModel.Store.cerradura" Multiplicity="1" />
+    <End Role="acceso" Type="bKeyModel.Store.acceso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cerradura">
+        <PropertyRef Name="idcerradura" />
+      </Principal>
+      <Dependent Role="acceso">
+        <PropertyRef Name="idcerradura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_acceso_usuario">
+    <End Role="usuario" Type="bKeyModel.Store.usuario" Multiplicity="1" />
+    <End Role="acceso" Type="bKeyModel.Store.acceso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="acceso">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_evento_cerradura">
+    <End Role="cerradura" Type="bKeyModel.Store.cerradura" Multiplicity="1" />
+    <End Role="evento" Type="bKeyModel.Store.evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cerradura">
+        <PropertyRef Name="idcerradura" />
+      </Principal>
+      <Dependent Role="evento">
+        <PropertyRef Name="idcerradura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_cerradura_cerradura">
+    <End Role="cerradura" Type="bKeyModel.Store.cerradura" Multiplicity="1" />
+    <End Role="usuario_cerradura" Type="bKeyModel.Store.usuario_cerradura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cerradura">
+        <PropertyRef Name="idcerradura" />
+      </Principal>
+      <Dependent Role="usuario_cerradura">
+        <PropertyRef Name="idcerradura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_cerradura_tipousuario">
+    <End Role="tipousuario" Type="bKeyModel.Store.tipousuario" Multiplicity="1" />
+    <End Role="usuario_cerradura" Type="bKeyModel.Store.usuario_cerradura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipousuario">
+        <PropertyRef Name="idTipoUsuario" />
+      </Principal>
+      <Dependent Role="usuario_cerradura">
+        <PropertyRef Name="idTipoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_cerradura_usuario">
+    <End Role="usuario" Type="bKeyModel.Store.usuario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="usuario_cerradura" Type="bKeyModel.Store.usuario_cerradura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="usuario_cerradura">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

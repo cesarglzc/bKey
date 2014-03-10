@@ -1,0 +1,9 @@
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Service\bin\bKey.Service.dll
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Service\bin\bKey.Service.pdb
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Service\bin\bKey.Negocio.dll
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Service\bin\bKey.DALC.dll
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Service\bin\bKey.Negocio.pdb
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Service\bin\bKey.DALC.pdb
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Service\obj\Debug\bKey.Service.csprojResolveAssemblyReference.cache
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Service\obj\Debug\bKey.Service.dll
+C:\Users\Alvaro Contreras\Desktop\bKeyProject\bKey.Service\obj\Debug\bKey.Service.pdb

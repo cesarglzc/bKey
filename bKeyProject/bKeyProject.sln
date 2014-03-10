@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bKey.DALC", "bKey.DALC\bKey.DALC.csproj", "{D10A12D7-5E45-41F9-8DB3-4616135A40EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bKey.Negocio", "bKey.Negocio\bKey.Negocio.csproj", "{8D84FAA1-6418-45B6-8B85-65346C62BC81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bKey.Service", "bKey.Service\bKey.Service.csproj", "{3285A524-0CA1-4466-973D-17046A5DC224}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D10A12D7-5E45-41F9-8DB3-4616135A40EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D10A12D7-5E45-41F9-8DB3-4616135A40EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D10A12D7-5E45-41F9-8DB3-4616135A40EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D10A12D7-5E45-41F9-8DB3-4616135A40EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D84FAA1-6418-45B6-8B85-65346C62BC81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D84FAA1-6418-45B6-8B85-65346C62BC81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D84FAA1-6418-45B6-8B85-65346C62BC81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D84FAA1-6418-45B6-8B85-65346C62BC81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3285A524-0CA1-4466-973D-17046A5DC224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3285A524-0CA1-4466-973D-17046A5DC224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3285A524-0CA1-4466-973D-17046A5DC224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3285A524-0CA1-4466-973D-17046A5DC224}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

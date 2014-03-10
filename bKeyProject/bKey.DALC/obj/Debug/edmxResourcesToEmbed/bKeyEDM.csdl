@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bKeyModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="bKeyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="acceso" EntityType="bKeyModel.acceso" />
+    <EntitySet Name="cerradura" EntityType="bKeyModel.cerradura" />
+    <EntitySet Name="evento" EntityType="bKeyModel.evento" />
+    <EntitySet Name="sysdiagrams" EntityType="bKeyModel.sysdiagrams" />
+    <EntitySet Name="tipousuario" EntityType="bKeyModel.tipousuario" />
+    <EntitySet Name="usuario" EntityType="bKeyModel.usuario" />
+    <EntitySet Name="usuario_cerradura" EntityType="bKeyModel.usuario_cerradura" />
+    <AssociationSet Name="FK_acceso_cerradura" Association="bKeyModel.FK_acceso_cerradura">
+      <End Role="cerradura" EntitySet="cerradura" />
+      <End Role="acceso" EntitySet="acceso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_acceso_usuario" Association="bKeyModel.FK_acceso_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="acceso" EntitySet="acceso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_evento_cerradura" Association="bKeyModel.FK_evento_cerradura">
+      <End Role="cerradura" EntitySet="cerradura" />
+      <End Role="evento" EntitySet="evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_cerradura_cerradura" Association="bKeyModel.FK_usuario_cerradura_cerradura">
+      <End Role="cerradura" EntitySet="cerradura" />
+      <End Role="usuario_cerradura" EntitySet="usuario_cerradura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_cerradura_tipousuario" Association="bKeyModel.FK_usuario_cerradura_tipousuario">
+      <End Role="tipousuario" EntitySet="tipousuario" />
+      <End Role="usuario_cerradura" EntitySet="usuario_cerradura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_cerradura_usuario" Association="bKeyModel.FK_usuario_cerradura_usuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="usuario_cerradura" EntitySet="usuario_cerradura" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="acceso">
+    <Key>
+      <PropertyRef Name="idacceso" />
+    </Key>
+    <Property Name="idacceso" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" />
+    <Property Name="idcerradura" Type="Int32" Nullable="false" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="cerradura" Relationship="bKeyModel.FK_acceso_cerradura" FromRole="acceso" ToRole="cerradura" />
+    <NavigationProperty Name="usuario" Relationship="bKeyModel.FK_acceso_usuario" FromRole="acceso" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="cerradura">
+    <Key>
+      <PropertyRef Name="idcerradura" />
+    </Key>
+    <Property Name="idcerradura" Type="Int32" Nullable="false" />
+    <Property Name="llave" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="acceso" Relationship="bKeyModel.FK_acceso_cerradura" FromRole="cerradura" ToRole="acceso" />
+    <NavigationProperty Name="evento" Relationship="bKeyModel.FK_evento_cerradura" FromRole="cerradura" ToRole="evento" />
+    <NavigationProperty Name="usuario_cerradura" Relationship="bKeyModel.FK_usuario_cerradura_cerradura" FromRole="cerradura" ToRole="usuario_cerradura" />
+  </EntityType>
+  <EntityType Name="evento">
+    <Key>
+      <PropertyRef Name="idevento" />
+    </Key>
+    <Property Name="idevento" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" />
+    <Property Name="idcerradura" Type="Int32" Nullable="false" />
+    <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="cerradura" Relationship="bKeyModel.FK_evento_cerradura" FromRole="evento" ToRole="cerradura" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tipousuario">
+    <Key>
+      <PropertyRef Name="idTipoUsuario" />
+    </Key>
+    <Property Name="idTipoUsuario" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="usuario_cerradura" Relationship="bKeyModel.FK_usuario_cerradura_tipousuario" FromRole="tipousuario" ToRole="usuario_cerradura" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="acceso" Relationship="bKeyModel.FK_acceso_usuario" FromRole="usuario" ToRole="acceso" />
+    <NavigationProperty Name="usuario_cerradura" Relationship="bKeyModel.FK_usuario_cerradura_usuario" FromRole="usuario" ToRole="usuario_cerradura" />
+  </EntityType>
+  <EntityType Name="usuario_cerradura">
+    <Key>
+      <PropertyRef Name="username" />
+      <PropertyRef Name="idcerradura" />
+    </Key>
+    <Property Name="username" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="idcerradura" Type="Int32" Nullable="false" />
+    <Property Name="idTipoUsuario" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="cerradura" Relationship="bKeyModel.FK_usuario_cerradura_cerradura" FromRole="usuario_cerradura" ToRole="cerradura" />
+    <NavigationProperty Name="tipousuario" Relationship="bKeyModel.FK_usuario_cerradura_tipousuario" FromRole="usuario_cerradura" ToRole="tipousuario" />
+    <NavigationProperty Name="usuario" Relationship="bKeyModel.FK_usuario_cerradura_usuario" FromRole="usuario_cerradura" ToRole="usuario" />
+  </EntityType>
+  <Association Name="FK_acceso_cerradura">
+    <End Role="cerradura" Type="bKeyModel.cerradura" Multiplicity="1" />
+    <End Role="acceso" Type="bKeyModel.acceso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cerradura">
+        <PropertyRef Name="idcerradura" />
+      </Principal>
+      <Dependent Role="acceso">
+        <PropertyRef Name="idcerradura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_acceso_usuario">
+    <End Role="usuario" Type="bKeyModel.usuario" Multiplicity="1" />
+    <End Role="acceso" Type="bKeyModel.acceso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="acceso">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_evento_cerradura">
+    <End Role="cerradura" Type="bKeyModel.cerradura" Multiplicity="1" />
+    <End Role="evento" Type="bKeyModel.evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cerradura">
+        <PropertyRef Name="idcerradura" />
+      </Principal>
+      <Dependent Role="evento">
+        <PropertyRef Name="idcerradura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_cerradura_cerradura">
+    <End Role="cerradura" Type="bKeyModel.cerradura" Multiplicity="1" />
+    <End Role="usuario_cerradura" Type="bKeyModel.usuario_cerradura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cerradura">
+        <PropertyRef Name="idcerradura" />
+      </Principal>
+      <Dependent Role="usuario_cerradura">
+        <PropertyRef Name="idcerradura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_cerradura_tipousuario">
+    <End Role="tipousuario" Type="bKeyModel.tipousuario" Multiplicity="1" />
+    <End Role="usuario_cerradura" Type="bKeyModel.usuario_cerradura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipousuario">
+        <PropertyRef Name="idTipoUsuario" />
+      </Principal>
+      <Dependent Role="usuario_cerradura">
+        <PropertyRef Name="idTipoUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_cerradura_usuario">
+    <End Role="usuario" Type="bKeyModel.usuario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="usuario_cerradura" Type="bKeyModel.usuario_cerradura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="usuario_cerradura">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

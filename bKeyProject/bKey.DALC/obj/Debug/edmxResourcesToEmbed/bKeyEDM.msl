@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bKeyModelStoreContainer" CdmEntityContainer="bKeyEntities">
+    <EntitySetMapping Name="acceso">
+      <EntityTypeMapping TypeName="bKeyModel.acceso">
+        <MappingFragment StoreEntitySet="acceso">
+          <ScalarProperty Name="idacceso" ColumnName="idacceso" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="idcerradura" ColumnName="idcerradura" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cerradura">
+      <EntityTypeMapping TypeName="bKeyModel.cerradura">
+        <MappingFragment StoreEntitySet="cerradura">
+          <ScalarProperty Name="idcerradura" ColumnName="idcerradura" />
+          <ScalarProperty Name="llave" ColumnName="llave" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="evento">
+      <EntityTypeMapping TypeName="bKeyModel.evento">
+        <MappingFragment StoreEntitySet="evento">
+          <ScalarProperty Name="idevento" ColumnName="idevento" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="idcerradura" ColumnName="idcerradura" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="bKeyModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipousuario">
+      <EntityTypeMapping TypeName="bKeyModel.tipousuario">
+        <MappingFragment StoreEntitySet="tipousuario">
+          <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="bKeyModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario_cerradura">
+      <EntityTypeMapping TypeName="bKeyModel.usuario_cerradura">
+        <MappingFragment StoreEntitySet="usuario_cerradura">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="idcerradura" ColumnName="idcerradura" />
+          <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
