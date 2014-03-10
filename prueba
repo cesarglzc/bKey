@@ -1,3 +1,8 @@
 Vamos a probar esto 
 Alvaro agrego esta linea
+<<<<<<< HEAD
 Alvaro volvió a agregar esta linea…
+=======
+
+Cesar agrego esta otra
+>>>>>>> FETCH_HEAD
