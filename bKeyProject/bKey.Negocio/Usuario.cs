@@ -86,5 +86,9 @@ namespace bKey.Negocio
                 return false;
             }
         }
+        public void MetodoPrueba()
+        { 
+            
+        }
     }
 }
