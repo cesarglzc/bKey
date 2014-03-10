@@ -16,7 +16,7 @@ namespace bKey.Negocio
         }
 
 
-        public bool compruebaLlave()
+        public bool CompruebaLlave()
         {
             try
             {

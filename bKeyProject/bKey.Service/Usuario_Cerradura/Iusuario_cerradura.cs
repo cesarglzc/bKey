@@ -15,11 +15,11 @@ namespace bKey.Service
 
         [OperationContract]
         bool darAcceso(string usernameDuenio, int idcerradura, string usernameInvitado);
-
         [OperationContract]
         bool quitarAcceso(string usernameDuenio, int idcerradura, string usernameInvitado);
-
         [OperationContract]
         bool registrarDuenio(string usernameDuenio, int idcerradura, string llave);
+        [OperationContract]
+        bool eliminarDuenio(string usernameDuenio, int idcerradura, string llave);
     }
 }

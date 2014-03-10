@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="bKey.Service.Cerradura.Cerradura" CodeBehind="Cerradura.svc.cs" %>

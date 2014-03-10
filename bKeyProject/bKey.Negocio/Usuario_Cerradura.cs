@@ -57,6 +57,7 @@ namespace bKey.Negocio
                         per => per.username == this.username && per.idcerradura == idCerradura
                     );
                 this.idTipoUsuario = uc.idTipoUsuario;
+                this.fecha = uc.fecha;
                 if (idTipoUsuario == 1)
                     return true;
                 else
@@ -105,6 +106,30 @@ namespace bKey.Negocio
                 Console.Write(ex);
             }
             return listaInvitados;
+        }
+        public bool DeleteAllInvitados()
+        {
+            try
+            {
+                Negocio.Usuario_Cerradura usuario_cerraduran = new Usuario_Cerradura();
+                List<DALC.usuario_cerradura> listaDALC = CommonBC.ModelobKey.usuario_cerradura.Where(res => res.idcerradura == this.idCerradura && (res.idTipoUsuario == 2)).OrderBy(res => res.username).ToList();
+                if (listaDALC.ToList().Count > 0)
+                {
+                    foreach (DALC.usuario_cerradura usuario_cerradurad in listaDALC)
+                    {
+                        usuario_cerraduran.idTipoUsuario = usuario_cerradurad.idTipoUsuario;
+                        usuario_cerraduran.idCerradura = usuario_cerradurad.idcerradura;
+                        usuario_cerraduran.username = usuario_cerradurad.username;
+                        usuario_cerraduran.Delete();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex);
+                return false;
+            }
         }
     }
 }

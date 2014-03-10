@@ -37,7 +37,7 @@ namespace bKey.Negocio
         }
         public List<Negocio.Acceso> ReadAllWithIdCerradura()
         {
-            List<Negocio.Acceso> listaEventos = new List<Acceso>();
+            List<Negocio.Acceso> listaAccesos = new List<Acceso>();
             try
             {
                 List<DALC.acceso> listaDALC = CommonBC.ModelobKey.acceso.Where(res => res.idcerradura == this.idCerradura && (res.fecha >= this.fecha)).OrderByDescending(res => res.fecha).ToList();
@@ -48,19 +48,19 @@ namespace bKey.Negocio
                     acceson.idCerradura = accesod.idcerradura;
                     acceson.fecha = accesod.fecha;
                     acceson.foto = accesod.foto;
-                    listaEventos.Add(acceson);
+                    listaAccesos.Add(acceson);
                 }
-                return listaEventos;
+                return listaAccesos;
             }
             catch (Exception ex)
             {
                 Console.Write(ex);
             }
-            return listaEventos;
+            return listaAccesos;
         }
         public List<Negocio.Acceso> ReadAllWithIdCerraduraAndFecha()
         {
-            List<Negocio.Acceso> listaEventos = new List<Acceso>();
+            List<Negocio.Acceso> listaAccesos = new List<Acceso>();
             try
             {
                 List<DALC.acceso> listaDALC = CommonBC.ModelobKey.acceso.Where(res => res.idcerradura == this.idCerradura && (res.fecha == this.fecha)).OrderByDescending(res => res.fecha).ToList();
@@ -71,15 +71,15 @@ namespace bKey.Negocio
                     acceson.idCerradura = accesod.idcerradura;
                     acceson.fecha = accesod.fecha;
                     acceson.foto = accesod.foto;
-                    listaEventos.Add(acceson);
+                    listaAccesos.Add(acceson);
                 }
-                return listaEventos;
+                return listaAccesos;
             }
             catch (Exception ex)
             {
                 Console.Write(ex);
             }
-            return listaEventos;
+            return listaAccesos;
         }
     }
 }

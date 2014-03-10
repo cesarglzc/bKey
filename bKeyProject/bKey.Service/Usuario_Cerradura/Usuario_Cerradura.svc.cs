@@ -51,7 +51,7 @@ namespace bKey.Service
             cerradura.idCerradura = idcerradura;
             cerradura.llave = llave;
 
-            if (cerradura.compruebaLlave())
+            if (cerradura.CompruebaLlave())
             {
                 bKey.Negocio.Usuario_Cerradura ucD = new bKey.Negocio.Usuario_Cerradura();
                 ucD.username = usernameDuenio;
@@ -65,7 +65,6 @@ namespace bKey.Service
             }else {
                 return false;
             }
-
         }
 
         public bool eliminarDuenio(string usernameDuenio, int idcerradura, string llave)
@@ -73,17 +72,27 @@ namespace bKey.Service
             bKey.Negocio.Cerradura cerradura = new bKey.Negocio.Cerradura();
             cerradura.idCerradura = idcerradura;
             cerradura.llave = llave;
-
-            if (cerradura.compruebaLlave())
+            if (cerradura.CompruebaLlave())
             {
                 bKey.Negocio.Usuario_Cerradura ucD = new bKey.Negocio.Usuario_Cerradura();
                 ucD.username = usernameDuenio;
                 ucD.idCerradura = idcerradura;
-                ucD.idTipoUsuario = 1;
-                if (ucD.Delete())
-                    return true;
+                ucD.Read();
+                if (ucD.idTipoUsuario == 1)
+                {
+                    if (ucD.Delete() && ucD.DeleteAllInvitados())
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
                 else
+                {
                     return false;
+                }
             }
             else
             {

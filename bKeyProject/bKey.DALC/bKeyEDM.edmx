@@ -114,7 +114,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_acceso_usuario">
-          <End Role="usuario" Type="bKeyModel.Store.usuario" Multiplicity="1" />
+          <End Role="usuario" Type="bKeyModel.Store.usuario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="acceso" Type="bKeyModel.Store.acceso" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="usuario">
